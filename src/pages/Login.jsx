@@ -27,7 +27,7 @@ const Login = () => {
             navigate('/');
         } catch (error) {
             if (error.response && error.response.status === 401) {
-                setMensaje('Credenciales incorrectas');
+                setMensaje('Las credenciales ingresadas son incorrectas');
             } else {
                 setMensaje('Error en el login');
             }

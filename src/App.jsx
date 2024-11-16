@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import { AppProvider } from './context/AppContext';
-import { UserProvider } from './context/UserContext'; // Importa UserProvider primero
+import { UserProvider } from './context/UserContext';
 import Home from './pages/Home';
 import Dogs from './pages/Dogs';
 import Cats from './pages/Cats';
@@ -16,7 +16,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
     return (
-        <UserProvider> {/* Asegúrate de que UserProvider envuelve a AppProvider */}
+        <UserProvider> 
             <AppProvider>
                 <Router>
                     <Header />

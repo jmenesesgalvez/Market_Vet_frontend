@@ -1,35 +1,3 @@
-/* import React from 'react';
-import { Link } from 'react-router-dom';
-import { useAppContext } from '../context/AppContext';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-const Header = () => {
-    const { cartItems, totalAmount } = useAppContext();
-
-    return (
-        <header className="bg-primary text-white p-3 mb-4">
-            <div className="container d-flex justify-content-between align-items-center">
-                <h1>Market Vet</h1>
-                <nav>
-                    <Link to="/" className="text-white mx-2">Home</Link>
-                    <Link to="/dogs" className="text-white mx-2">Dogs</Link>
-                    <Link to="/cats" className="text-white mx-2">Cats</Link>
-                    <Link to="/others" className="text-white mx-2">Others</Link>
-                    <Link to="/promotions" className="text-white mx-2">Promotions</Link>
-                    <Link to="/contact" className="text-white mx-2">Contact</Link>
-                    <Link to="/signup" className="text-white mx-2">Sign Up</Link>
-                    <Link to="/login" className="text-white mx-2">Login</Link>
-                </nav>
-                <div>
-                    <span className="mx-2">Items: {cartItems.length}</span>
-                    <span className="mx-2">Total: ${totalAmount}</span>
-                </div>
-            </div>
-        </header>
-    );
-};
-
-export default Header; */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAppContext } from '../context/AppContext';
@@ -46,7 +14,7 @@ const Header = () => {
             <div className="container d-flex justify-content-between align-items-center">
                 {/* Logo y Nombre */}
                 <div className="d-flex align-items-center">
-                    <img src="/logo.png" alt="Market Vet Logo" width="40" height="40" className="me-2" />
+                    {/* <img src="/logo.png" alt="Market Vet Logo" width="40" height="40" className="me-2" /> */}
                     <h1 className="h4 mb-0 fw-bold">Market Vet</h1>
                 </div>
 
