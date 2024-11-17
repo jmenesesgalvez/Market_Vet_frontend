@@ -132,19 +132,24 @@ const Cats = () => {
                         'Content-Type': 'application/json',
                     },
                 });
+
+                if (!Array.isArray(response.data)) {
+                    throw new Error('El formato de los datos no es válido');
+                }
+
                 setProducts(response.data);
-                setFilteredProducts(response.data); // Inicializa los productos filtrados
+                setFilteredProducts(response.data);
             } catch (error) {
                 console.error('Error al cargar productos:', error);
 
                 if (error.response) {
-                    // Si el servidor respondió con un estado de error
+                    // Error del servidor
                     alert(`Error del servidor: ${error.response.status} - ${error.response.data.message || 'Error desconocido'}`);
                 } else if (error.request) {
-                    // Si la solicitud fue enviada pero no hubo respuesta
+                    // No hay respuesta del servidor
                     alert('No se recibió respuesta del servidor. Por favor, verifica tu conexión o contacta al soporte.');
                 } else {
-                    // Si ocurrió un error al configurar la solicitud
+                    // Error en la configuración
                     alert(`Error al realizar la solicitud: ${error.message}`);
                 }
             }
@@ -218,7 +223,7 @@ const Cats = () => {
                                         src={`${backendUrl}/${product.imagen}`}
                                         className="img-fluid rounded"
                                         alt={product.producto}
-                                        style={{ maxWidth: '200px', maxHeight: '200px' }}
+                                        style={{ maxWidth: '200px', maxHeight: '200px', objectFit: 'contain' }}
                                     />
                                 </div>
                                 <div className="card-body">
@@ -241,5 +246,6 @@ const Cats = () => {
 };
 
 export default Cats;
+
 
 
