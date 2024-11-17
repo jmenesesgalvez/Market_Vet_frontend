@@ -122,7 +122,7 @@ const Cats = () => {
     const [priceFilter, setPriceFilter] = useState('');
 
     // Base URL del backend desde variables de entorno
-    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://tu-backend.onrender.com';
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://market-vet-backend.onrender.com';
 
     useEffect(() => {
         const fetchProducts = async () => {
