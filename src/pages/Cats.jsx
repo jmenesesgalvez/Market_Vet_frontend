@@ -127,12 +127,26 @@ const Cats = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get(`${backendUrl}/api/products/cats`);
+                const response = await axios.get(`${backendUrl}/api/products/cats`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
                 setProducts(response.data);
                 setFilteredProducts(response.data); // Inicializa los productos filtrados
             } catch (error) {
                 console.error('Error al cargar productos:', error);
-                alert('No se pudieron cargar los productos. Intenta de nuevo más tarde.');
+
+                if (error.response) {
+                    // Si el servidor respondió con un estado de error
+                    alert(`Error del servidor: ${error.response.status} - ${error.response.data.message || 'Error desconocido'}`);
+                } else if (error.request) {
+                    // Si la solicitud fue enviada pero no hubo respuesta
+                    alert('No se recibió respuesta del servidor. Por favor, verifica tu conexión o contacta al soporte.');
+                } else {
+                    // Si ocurrió un error al configurar la solicitud
+                    alert(`Error al realizar la solicitud: ${error.message}`);
+                }
             }
         };
         fetchProducts();
@@ -227,4 +241,5 @@ const Cats = () => {
 };
 
 export default Cats;
+
 
